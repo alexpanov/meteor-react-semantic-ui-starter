@@ -1,0 +1,42 @@
+checkout:
+  post:
+    - git submodule update --init
+machine:
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+  node:
+    version: 7.10.0
+dependencies:
+  cache_directories:
+    - ~/.cache/yarn
+    - ~/.meteor
+  override:
+    - meteor || curl https://install.meteor.com | /bin/sh
+    - yarn
+test:
+  pre:
+    - yarn lint
+  override:
+    - yarn test
+deployment:
+  main:
+    branch: master
+    # TODO: Replace {app-name} with app name
+    commands:
+      # Deploy to Staging
+      - git push git@heroku.com:{app-name}-staging.git $CIRCLE_SHA1:refs/heads/master
+      # Update to latest Chrome
+      - google-chrome --version
+      - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb stable main" >> /etc/apt/sources.list.d/google.list'
+      - sudo apt-get update
+      - sudo apt-get --only-upgrade install google-chrome-stable
+      - google-chrome --version
+      # Allow Nightwatch to write logs
+      - sudo mkdir logs
+      - sudo touch logs/selenium-debug.log
+      - sudo chown -R ubuntu:ubuntu logs
+      # Run Nightwatch
+      - APP_HOST={app-name}-staging.herokuapp.com yarn integration-test
+      # Deploy to Prod
+      - heroku pipelines:promote -a {app-name}-staging

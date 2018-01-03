@@ -1,0 +1,47 @@
+<head>
+    <title>Meteor React Semantic-UI Starter</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=3">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .pre-loader {
+            border: 2px solid rgba(0, 0, 0, .1);
+            border-top: 2px solid rgba(0, 0, 0, 0.8);
+            border-radius: 80%;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -20px 0 0 -20px;
+            animation: spin .6s linear infinite;
+            z-index: 9999;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="root">
+    <div class="pre-loader"></div>
+</div>
+
+</body>

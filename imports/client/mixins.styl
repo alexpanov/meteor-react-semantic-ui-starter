@@ -1,0 +1,44 @@
+@import "{}/imports/client/config.styl"
+
+mobile()
+  @media only screen and (min-device-width: 320px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    {block}
+
+web()
+  @media only screen and (min-device-width: 736px)
+    {block}
+
+fixed-panel()
+  background: $black
+  left: 0
+  right: 0
+  height: 60px
+  z-index: 5
+  display: flex
+  align-items center
+  margin: 0
+  padding: 0 16px
+  position: fixed
+
+input-autofill($bg, $color)
+  input
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus
+    &:-webkit-autofill,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus
+      border: none
+      border-bottom: 1px solid $black
+      -webkit-text-fill-color: $color
+      -webkit-box-shadow: 0 0 0 1000px $bg inset
+      transition: background-color 5000s ease-in-out 0s
+
+appearance()
+  -webkit-appearance: arguments
+  -moz-appearance: arguments
+  appearance: arguments
