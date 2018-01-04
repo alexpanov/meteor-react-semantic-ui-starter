@@ -4,6 +4,7 @@
     "start": "meteor run",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
+    "integration-test": "nightwatch",
     "test": "TEST_BROWSER_DRIVER=nightmare meteor test --once --driver-package dispatch:mocha",
     "test-live": "meteor test --driver-package=practicalmeteor:mocha"
   },
@@ -18,10 +19,14 @@
     "prop-types": "^15.5.10",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-form": "^7.2.0",
     "semantic-ui-react": "^0.77.1"
   },
   "devDependencies": {
+    "babel-eslint": "^8.1.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "chai": "^4.1.0",
     "chai-as-promised": "^7.1.1",
