@@ -8,6 +8,7 @@ import Menu from '/client/components/Menu';
 import {createStore} from 'redux';
 import reducer from './state';
 import {Provider} from 'react-redux';
+import 'semantic-ui-css/semantic.min.css';
 
 const links = [
   {href: '/', label: 'Home'},
