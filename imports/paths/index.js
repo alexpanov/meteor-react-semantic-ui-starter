@@ -1,1 +1,1 @@
-export const todos = '/todos/';
+export const about = '/todos/';

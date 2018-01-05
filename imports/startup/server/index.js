@@ -1,7 +1,7 @@
 import './migrations';
 import './registerApi';
-import seedTodos from './seedTodos';
+import seedVinNumbers from './seedVinNumbers';
 
 Meteor.startup(() => {
-  seedTodos();
+  seedVinNumbers();
 });

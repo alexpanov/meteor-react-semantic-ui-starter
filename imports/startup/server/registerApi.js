@@ -1,2 +1,2 @@
-import '/imports/api/todos/methods';
-import '/imports/api/todos/server/publications';
+import '/imports/api/vinNumbers/methods';
+import '/imports/api/vinNumbers/server/publications';

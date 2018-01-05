@@ -1,9 +1,9 @@
 import faker from 'faker';
 import {Factory} from 'meteor/dburles:factory';
-import {Todos} from '/imports/api/todos/collections';
+import {VinNumbers} from '/imports/api/vinNumbers/collection';
 import '/imports/testSupport/setup';
 
-Factory.define('Todo', Todos, {
+Factory.define('VinNumber', VinNumbers, {
   name: faker.lorem.sentence(),
 });
 
