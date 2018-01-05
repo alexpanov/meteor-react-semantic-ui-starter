@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Input as SemanticInput} from 'semantic-ui-react';
+import {Form, Input as SemanticInput, Label} from 'semantic-ui-react';
 import {Field as ReduxFormField} from 'redux-form';
 import PropTypes from 'prop-types';
 import getPlaceholder from './reusableFunctions/getPlaceholder';
@@ -10,11 +10,34 @@ class SemanticUiInput extends React.Component {
     onChange(value);
   }
 
-  renderWarning() {
-    const {meta: {touched, warning}} = this.props;
+  error() {
+    return this.retrieveActionableMetaValue('error');
+  }
 
-    if (touched && warning) {
+  retrieveActionableMetaValue(metaKey) {
+    const {meta} = this.props;
+    const {touched, active} = meta;
+    const metaValue = meta[metaKey];
+    return touched && !active ? metaValue : null;
+  }
+
+  warning() {
+    return this.retrieveActionableMetaValue('warning');
+  }
+
+  renderWarning() {
+    const warning = this.warning();
+    if (warning) {
       return <span>{warning}</span>;
+    }
+
+    return false;
+  }
+
+  renderError() {
+    const error = this.error();
+    if (error) {
+      return <Label basic color="red" pointing>{error}</Label>;
     }
 
     return false;
@@ -22,7 +45,7 @@ class SemanticUiInput extends React.Component {
 
   render() {
     const {
-      input, meta: {touched, error}, label, as: InputField, ...props
+      input, label, as: InputField, ...props
     } = this.props;
 
     return (
@@ -33,9 +56,10 @@ class SemanticUiInput extends React.Component {
           value={input.value}
           {...props}
           onChange={(e, d) => this.onChange(e, d)}
-          error={touched && error}
+          error={!!this.error()}
         />
         {this.renderWarning()}
+        {this.renderError()}
       </Form.Field>
     );
   }

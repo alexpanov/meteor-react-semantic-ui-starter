@@ -32,3 +32,4 @@ static-html
 # bundle-visualizer
 percolate:migrations
 fuww:created-at-updated-at
+didericis:callpromise-mixin
