@@ -1,17 +1,25 @@
 import {Mongo} from 'meteor/mongo';
-import {SimpleSchema} from 'meteor/aldeed:simple-schema';
-import {createdAtUpdatedAtSchema} from 'meteor/fuww:created-at-updated-at';
+import SimpleSchema from 'simpl-schema';
+import {createdAtSchema, updatedAtSchema} from '/imports/collections/schemas';
 import moment from 'moment';
 
 export const VinNumbers = new Mongo.Collection('vinNumbers');
 
-export const VinNumberSchema = new SimpleSchema({
+export const VinNumberFields = new SimpleSchema({
   value: {
+    type: String,
+  },
+  notes: {
     type: String,
   }
 });
 
-VinNumbers.attachSchema(new SimpleSchema([VinNumberSchema, createdAtUpdatedAtSchema]));
+const VinNumberSchema = new SimpleSchema();
+VinNumberSchema.extend(VinNumberFields);
+VinNumberSchema.extend(createdAtSchema);
+VinNumberSchema.extend(updatedAtSchema);
+
+VinNumbers.attachSchema(VinNumberSchema);
 
 VinNumbers.helpers({
   friendlyCreationDate() {

@@ -3,6 +3,9 @@ import {reduxForm} from 'redux-form';
 import Form, {Input} from '../../components/Form';
 import PropTypes from 'prop-types';
 import Button from '../../components/Button';
+import {createFormSchemaValidator} from '/client/validation/form';
+import {VinNumberFields} from '/imports/api/vinNumbers/collection';
+import {addVin} from '/imports/api/vinNumbers/methods';
 
 // @todo #3:15min Add VIN validation function tests
 
@@ -15,27 +18,37 @@ function validateVin(vin) {
 // @todo #3:10min Add VIN number validation
 //  with the above validation function
 class AddVinForm extends React.Component {
-  // @todo #3:30min Implement `createVin` method
   onCreate(vin) {
-    console.log(vin);
+    const {reset} = this.props;
+
+    return addVin.callPromise(vin)
+      .then(() => console.log('success'))
+      .then(reset)
+      .catch((err) => {
+        // @todo #3:30min Display the error
+        console.error('Error', err);
+      });
   }
 
   render() {
-    const {handleSubmit} = this.props;
+    const {handleSubmit, submitting} = this.props;
     return (
       <Form onSubmit={handleSubmit(this.onCreate.bind(this))}>
-        <Input name="vin" label="VIN number" />
+        <Input name="value" label="VIN number" />
         <Input name="notes" label="Notes" />
-        <Button text="Save" type="submit" />
+        <Button text="Save" type="submit" loading={submitting} />
       </Form>
     );
   }
 }
 
 AddVinForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
 };
 
 export default reduxForm({
-  form: 'addVin'
+  form: 'addVin',
+  validate: createFormSchemaValidator(VinNumberFields)
 })(AddVinForm);

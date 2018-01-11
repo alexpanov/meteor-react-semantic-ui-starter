@@ -18,9 +18,7 @@ shell-server@0.3.0            # Server-side component of the `meteor shell` comm
 stylus@2.513.13
 meteortoys:allthings
 react-meteor-data
-aldeed:simple-schema
 mdg:validated-method
-aldeed:schema-index
 practicalmeteor:mocha
 dispatch:mocha
 dburles:factory
@@ -31,5 +29,5 @@ static-html
 
 # bundle-visualizer
 percolate:migrations
-fuww:created-at-updated-at
 didericis:callpromise-mixin
+aldeed:collection2-core
