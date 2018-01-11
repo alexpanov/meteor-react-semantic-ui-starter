@@ -10,6 +10,8 @@ function validateVin(vin) {
   return vin.match(re);
 }
 
+
+// @todo implement with the form components
 class AddVinForm extends React.Component {
   render() {
     return (
