@@ -7,5 +7,5 @@ Factory.define('VinNumber', VinNumbers, {
   name: faker.lorem.sentence(),
 });
 
-// TODO write example tests
+// @todo #1:30min Write some tests
 export default Factory;

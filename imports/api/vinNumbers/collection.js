@@ -15,7 +15,7 @@ VinNumbers.attachSchema(new SimpleSchema([VinNumberSchema, createdAtUpdatedAtSch
 
 VinNumbers.helpers({
   friendlyCreationDate() {
-    // TODO display a user friendly message
+    // @todo #1:10min Display a user friendly creation date
     return moment(this.createdAt).format();
   }
 });

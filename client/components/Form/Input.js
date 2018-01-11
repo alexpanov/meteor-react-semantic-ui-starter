@@ -100,7 +100,7 @@ Input.defaultProps = {
   type: 'text',
 };
 
-// TODO Add a plain number boolean prop instead of type="number"
+// @todo #1:30min Add a plain number boolean prop instead of type="number"
 Input.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,

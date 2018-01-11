@@ -46,7 +46,7 @@ export default class Dropdown extends React.Component {
   }
 }
 
-// TODO enable required verification
+// @todo #1:30min Enable required verification
 Dropdown.defaultProps = {
   optional: false
 };

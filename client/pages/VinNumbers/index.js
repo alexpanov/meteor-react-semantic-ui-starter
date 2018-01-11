@@ -11,7 +11,7 @@ function validateVin(vin) {
 }
 
 
-// @todo implement with the form components
+// @todo #1: 30min Implement VIN form
 class AddVinForm extends React.Component {
   render() {
     return (
