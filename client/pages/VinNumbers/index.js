@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Loader from '/client/components/Loader';
 import {VinNumbers} from '/imports/api/vinNumbers/collection';
 
+// @todo #3:15min Add VIN validation function tests
 // eslint-disable-next-line no-unused-vars
 function validateVin(vin) {
   const re = new RegExp('^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$');
@@ -12,6 +13,8 @@ function validateVin(vin) {
 
 
 // @todo #1: 30min Implement VIN form
+// @todo #3: 10min Add VIN number validation
+//  with the above validation function
 class AddVinForm extends React.Component {
   render() {
     return (
