@@ -21,10 +21,9 @@ test:
 deployment:
   main:
     branch: master
-    # TODO: Replace {app-name} with app name
     commands:
       # Deploy to Staging
-      - git push git@heroku.com:{app-name}-staging.git $CIRCLE_SHA1:refs/heads/master
+      - git push git@heroku.com:vin-numbers-staging.git $CIRCLE_SHA1:refs/heads/master
       # Update to latest Chrome
       - google-chrome --version
       - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -33,10 +32,10 @@ deployment:
       - sudo apt-get --only-upgrade install google-chrome-stable
       - google-chrome --version
       # Allow Nightwatch to write logs
-      - sudo mkdir logs
-      - sudo touch logs/selenium-debug.log
-      - sudo chown -R ubuntu:ubuntu logs
+      - sudo mkdir -p nightwatch-output/logs
+      - sudo touch nightwatch-output/logs/selenium-debug.log
+      - sudo chown -R ubuntu:ubuntu nightwatch-output
       # Run Nightwatch
-      - APP_HOST={app-name}-staging.herokuapp.com yarn integration-test
+      - APP_HOST=vin-numbers-staging.herokuapp.com yarn integration-test
       # Deploy to Prod
-      - heroku pipelines:promote -a {app-name}-staging
+      - heroku pipelines:promote -a vin-numbers-staging
