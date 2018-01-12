@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Loader from '/client/components/Loader';
 import {VinNumbers} from '/imports/api/vinNumbers/collection';
 import AddVinForm from './AddVinForm';
+import VinNumberCard from './VinNumberCard';
 
 class VinNumbersPage extends React.Component {
   renderVinNumbersList() {
@@ -13,7 +14,7 @@ class VinNumbersPage extends React.Component {
     }
 
     return vinNumbers.map(vin => (
-      <p key={vin._id}>{vin.friendlyCreationDate()}</p>
+      <VinNumberCard key={vin._id} vin={vin} />
     ));
   }
 
