@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Button, Card} from 'semantic-ui-react';
+import {removeVin} from '/imports/api/vinNumbers/methods';
 
 export default class VinNumberCard extends React.Component {
-  // @todo #16:30min Implement remove VIN method
+  onRemove() {
+    const {vin: {_id}} = this.props;
+    removeVin.callPromise({_id})
+      .catch((err) => {
+        alert('An error occured. Please check the console');
+        console.error(err);
+      });
+  }
+
   // @todo #16:30min Implement approve VIN method
   render() {
     const {vin} = this.props;
@@ -16,7 +25,7 @@ export default class VinNumberCard extends React.Component {
         <Card.Content extra>
           <Button.Group fluid>
             <Button basic positive>Approve</Button>
-            <Button basic negative>Remove</Button>
+            <Button basic negative onClick={() => this.onRemove()}>Remove</Button>
           </Button.Group>
         </Card.Content>
       </Card>
