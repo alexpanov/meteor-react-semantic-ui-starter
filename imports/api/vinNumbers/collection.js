@@ -23,7 +23,6 @@ VinNumbers.attachSchema(VinNumberSchema);
 
 VinNumbers.helpers({
   friendlyCreationDate() {
-    // @todo #1:10min Display a user friendly creation date
-    return moment(this.createdAt).format();
+    return `Created ${moment(this.createdAt).fromNow()}`;
   }
 });

@@ -44,6 +44,7 @@
     "eslint-plugin-react": "^7.5.1",
     "faker": "^4.1.0",
     "mocha": "^4.1.0",
+    "nightmare": "^2.10.0",
     "nightwatch": "^0.9.19",
     "react-test-renderer": "^16.2.0",
     "selenium-server-standalone-jar": "3.8.1"
