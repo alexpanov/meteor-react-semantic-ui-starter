@@ -1,11 +1,5 @@
 const SCREENSHOT_PATH = process.env.CIRCLE_ARTIFACTS || 'nightwatch-output/screenshots';
 
-// TODO add these to package.json
-// ,
-// "nightmare": "^2.10.0",
-//   "nightwatch": "^0.9.19",
-//   "selenium-server-standalone-jar": "3.8.1"
-
 module.exports = {
   src_folders: [
     'tests/fixtures'
