@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Button, Card} from 'semantic-ui-react';
 import {removeVin} from '/imports/api/vinNumbers/methods';
+import Hover from '/client/components/Hover';
 
 export default class VinNumberCard extends React.Component {
   onRemove() {
@@ -17,18 +18,22 @@ export default class VinNumberCard extends React.Component {
   render() {
     const {vin} = this.props;
     return (
-      <Card>
-        <Card.Content>
-          <Card.Header>VIN {vin.value}</Card.Header>
-          <Card.Meta>{vin.friendlyCreationDate()}</Card.Meta>
-        </Card.Content>
-        <Card.Content extra>
-          <Button.Group fluid>
-            <Button basic positive>Approve</Button>
-            <Button basic negative onClick={() => this.onRemove()}>Remove</Button>
-          </Button.Group>
-        </Card.Content>
-      </Card>
+      <Hover>
+        {hovered => (
+          <Card raised={hovered}>
+            <Card.Content>
+              <Card.Header>VIN # {vin.value}</Card.Header>
+              <Card.Meta>{vin.friendlyCreationDate()}</Card.Meta>
+            </Card.Content>
+            <Card.Content extra>
+              <Button.Group fluid>
+                <Button basic positive>Approve</Button>
+                <Button basic negative onClick={() => this.onRemove()}>Remove</Button>
+              </Button.Group>
+            </Card.Content>
+          </Card>
+        )}
+      </Hover>
     );
   }
 }
