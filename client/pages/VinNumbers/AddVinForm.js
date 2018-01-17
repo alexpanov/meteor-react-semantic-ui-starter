@@ -6,17 +6,8 @@ import Button from '../../components/Button';
 import {createFormSchemaValidator} from '/client/validation/form';
 import {VinNumberFields} from '/imports/api/vinNumbers/collection';
 import {addVin} from '/imports/api/vinNumbers/methods';
+import validateVin from './validateVin';
 
-// @todo #3:15min Add VIN validation function tests
-
-// eslint-disable-next-line no-unused-vars
-function validateVin(vin) {
-  const re = new RegExp('^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$');
-  return vin.match(re);
-}
-
-// @todo #3:10min Add VIN number validation
-//  with the above validation function
 class AddVinForm extends React.Component {
   onCreate(vin) {
     const {reset} = this.props;
@@ -34,7 +25,7 @@ class AddVinForm extends React.Component {
     const {handleSubmit, submitting} = this.props;
     return (
       <Form onSubmit={handleSubmit(this.onCreate.bind(this))}>
-        <Input name="value" label="VIN number" />
+        <Input name="value" label="VIN number" validate={validateVin} />
         <Input name="notes" label="Notes" />
         <Button text="Save" type="submit" loading={submitting} />
       </Form>
