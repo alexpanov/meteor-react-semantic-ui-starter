@@ -11,6 +11,7 @@ export const VinNumberFields = new SimpleSchema({
   },
   notes: {
     type: String,
+    optional: true
   }
 });
 

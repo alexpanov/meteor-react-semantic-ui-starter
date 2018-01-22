@@ -24,6 +24,7 @@ export default class VinNumberCard extends React.Component {
             <Card.Content>
               <Card.Header>VIN # {vin.value}</Card.Header>
               <Card.Meta>{vin.friendlyCreationDate()}</Card.Meta>
+              <Card.Description>{vin.notes}</Card.Description>
             </Card.Content>
             <Card.Content extra>
               <Button.Group fluid>

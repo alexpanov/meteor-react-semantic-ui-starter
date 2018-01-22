@@ -4,9 +4,8 @@ import {addVin} from '/imports/api/vinNumbers/methods';
 const isSeededAlready = () => VinNumbers.find().count() > 1;
 
 const dummyVins = [
-  {value: 'Vin1', notes: 'Note1'},
-  {value: 'Vin2', notes: 'Note2'},
-  {value: 'Vin3', notes: 'Note3'},
+  {value: '5GZCZ43D13S812715', notes: 'First'},
+  {value: 'SGZCZ43D13S812715', notes: 'Second'},
 ];
 
 const seedVinNumbers = () => {

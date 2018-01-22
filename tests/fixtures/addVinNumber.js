@@ -9,10 +9,13 @@ module.exports = {
     console.log('Executing test `before` hook');
   },
 
-  // @todo #2:30min Implement 'Add VIN number' test
   'Add a VIN number': function (browser) {
     browser
       .goHome()
+      .waitForElementVisible('#add-vin-form')
+      .setValue('#add-vin-form input[name=value]', 'SGZCZ43D13S812715')
+      .setValue('#add-vin-form input[name=notes]', 'Submitted by Nightwatch')
+      .click('#add-vin-form button')
       .end();
   }
 };

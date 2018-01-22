@@ -24,7 +24,7 @@ class AddVinForm extends React.Component {
   render() {
     const {handleSubmit, submitting} = this.props;
     return (
-      <Form onSubmit={handleSubmit(this.onCreate.bind(this))}>
+      <Form onSubmit={handleSubmit(this.onCreate.bind(this))} id="add-vin-form">
         <Input name="value" label="VIN number" validate={validateVin} />
         <Input name="notes" label="Notes" />
         <Button text="Save" type="submit" loading={submitting} />
