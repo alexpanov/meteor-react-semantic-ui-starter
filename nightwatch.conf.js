@@ -10,7 +10,7 @@ module.exports = {
   globals_path: 'tests/globals.js',
   selenium: {
     start_process: true,
-    server_path: './node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.11.0.jar',
+    server_path: './node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar',
     log_path: 'nightwatch-output/logs',
     port: 9515,
     cli_args: {
@@ -36,11 +36,8 @@ module.exports = {
         browserName: 'chrome',
         marionette: true,
         chromeOptions: {
-          args: [
-            '--no-sandbox',
-            'incognito',
-            'disable-extensions'
-          ]
+          args: ['--no-sandbox', 'incognito', 'disable-extensions'],
+          w3c: false
         }
       }
     }
