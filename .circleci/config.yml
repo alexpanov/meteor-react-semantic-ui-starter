@@ -1,0 +1,45 @@
+version: 2.1
+executors:
+  node:
+    docker:
+      - image: circleci/node:10
+
+commands:
+  checkout_and_install_dependencies:
+    description: "Checkout code and install dependencies from cache"
+    steps:
+      - checkout:
+          name: Checkout code
+      - restore_cache:
+          name: Restore yarn package cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Meteor
+          command: meteor || curl https://install.meteor.com | /bin/sh
+      - run:
+          name: Install dependencies
+          command: yarn install --frozen-lockfile
+
+jobs:
+  lint_and_test:
+    executor: node
+    steps:
+      - checkout_and_install_dependencies
+      - run:
+          name: Lint
+          command: yarn lint
+      - run:
+          name: Run tests
+          command: yarn test
+      - save_cache:
+          name: Save yarn package cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+workflows:
+  version: 2.1
+  build_and_deploy:
+    jobs:
+      - lint_and_test
