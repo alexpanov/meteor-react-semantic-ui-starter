@@ -8,8 +8,7 @@ import 'normalize.css';
 Meteor.startup(() => {
   Tracker.autorun((computations) => {
     render(
-      <App />
-      ,
+      <App />,
       document.getElementById('root')
     );
     computations.stop();

@@ -21,6 +21,7 @@
     "no-console": "off",
     "class-methods-use-this": "off",
     "comma-dangle": "off",
+    "max-classes-per-file": "off",
     "max-len": [
       "error",
       120
@@ -52,6 +53,8 @@
     "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": "off",
     "react/prefer-stateless-function": "off",
+    "react/state-in-constructor": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-closing-bracket-location": "warn",
     "react/jsx-no-bind": [
       "warn",

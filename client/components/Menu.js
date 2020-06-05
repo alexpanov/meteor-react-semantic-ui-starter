@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom';
 
 export default class Menu extends React.Component {
   renderLinks() {
-    return this.props.links.map(({href, label}) => (
+    const {links} = this.props;
+    return links.map(({href, label}) => (
       <SemanticUiMenu.Item key={label}>
         <Link to={href} name={label}>
           {label}

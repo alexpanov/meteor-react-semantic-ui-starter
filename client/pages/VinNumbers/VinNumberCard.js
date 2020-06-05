@@ -19,10 +19,13 @@ export default class VinNumberCard extends React.Component {
     const {vin} = this.props;
     return (
       <Hover>
-        {hovered => (
+        {(hovered) => (
           <Card raised={hovered}>
             <Card.Content>
-              <Card.Header>VIN # {vin.value}</Card.Header>
+              <Card.Header>
+                VIN #
+                {vin.value}
+              </Card.Header>
               <Card.Meta>{vin.friendlyCreationDate()}</Card.Meta>
               <Card.Description>{vin.notes}</Card.Description>
             </Card.Content>

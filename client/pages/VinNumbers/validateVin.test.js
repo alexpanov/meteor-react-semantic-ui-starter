@@ -1,5 +1,5 @@
-import validateVin from './validateVin';
 import {expect} from 'chai';
+import validateVin from './validateVin';
 
 describe('validateVin', () => {
   it('should validate standard VIN numbers', () => {

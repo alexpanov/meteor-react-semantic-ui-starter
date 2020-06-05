@@ -8,7 +8,7 @@ export default class VinNumbers extends React.Component {
     const {vinNumbers} = this.props;
     return (
       <List elements={vinNumbers}>
-        {vin => <VinNumberCard vin={vin} />}
+        {(vin) => <VinNumberCard vin={vin} />}
       </List>
     );
   }

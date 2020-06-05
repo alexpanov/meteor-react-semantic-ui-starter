@@ -6,7 +6,7 @@ const convertToFormErrors = (err) => {
   return errors;
 };
 
-export const createFormSchemaValidator = schema => (fields) => {
+export const createFormSchemaValidator = (schema) => (fields) => {
   try {
     schema.omit('_id').validator()(fields);
   } catch (err) {

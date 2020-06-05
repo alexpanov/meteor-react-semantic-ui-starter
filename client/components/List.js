@@ -11,7 +11,7 @@ export default class List extends React.Component {
         duration={200}
         animation="fade left"
       >
-        {elements.map(element => (
+        {elements.map((element) => (
           <SuiList.Item key={element._id}>
             {children(element)}
           </SuiList.Item>

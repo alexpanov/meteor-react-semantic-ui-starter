@@ -1,6 +1,6 @@
 import SimpleSchema from 'simpl-schema';
-import {createFormSchemaValidator} from './form';
 import chai from 'chai';
+import {createFormSchemaValidator} from './form';
 
 chai.should();
 

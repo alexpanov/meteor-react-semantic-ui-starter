@@ -6,7 +6,8 @@ import getPlaceholder from './reusableFunctions/getPlaceholder';
 
 class SemanticUiDropdown extends React.Component {
   onChange(e, {value}) {
-    this.props.input.onChange(value);
+    const {input} = this.props;
+    input.onChange(value);
   }
 
   render() {

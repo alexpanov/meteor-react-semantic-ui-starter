@@ -16,9 +16,9 @@ const seedVinNumbers = () => {
 
   console.log('Running seed function');
 
-  const vinInserts = dummyVins.map(vin => addVin.callPromise(vin));
+  const vinInserts = dummyVins.map((vin) => addVin.callPromise(vin));
   Promise.all(vinInserts)
-    .catch(err => console.error('Seeding the server failed', err))
+    .catch((err) => console.error('Seeding the server failed', err))
     .then(() => console.log(`Successfully seeded the server with ${vinInserts.length} vin numbers`));
 };
 

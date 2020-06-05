@@ -50,7 +50,7 @@ class SemanticUiInput extends React.Component {
 
     return (
       <Form.Field>
-        <label>{label}</label>
+        <label htmlFor={input.name}>{label}</label>
         <InputField
           {...input}
           value={input.value}
@@ -80,7 +80,7 @@ export default class Input extends React.Component {
   render() {
     const {name, type, ...rest} = this.props;
 
-    const parse = value => (type === 'number' ? parseFloat(value) : value);
+    const parse = (value) => (type === 'number' ? parseFloat(value) : value);
 
     return (
       <ReduxFormField

@@ -1,7 +1,7 @@
 import React from 'react';
 import {reduxForm} from 'redux-form';
-import Form, {Input} from '../../components/Form';
 import PropTypes from 'prop-types';
+import Form, {Input} from '../../components/Form';
 import Button from '../../components/Button';
 import {createFormSchemaValidator} from '/client/validation/form';
 import {VinNumberFields} from '/imports/api/vinNumbers/collection';

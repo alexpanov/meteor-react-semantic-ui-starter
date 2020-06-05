@@ -8,7 +8,7 @@ export const createdAtSchema = new SimpleSchema({
     autoValue() {
       if (this.isInsert) {
         return new Date();
-      } else if (this.isUpsert) {
+      } if (this.isUpsert) {
         return {$setOnInsert: new Date()};
       }
 
@@ -28,7 +28,7 @@ export const updatedAtSchema = new SimpleSchema({
     autoValue() {
       if (this.isInsert) {
         return getCreatedAt.call(this) || new Date();
-      } else if (this.isUpsert) {
+      } if (this.isUpsert) {
         return {
           $set: new Date(),
           $setOnInsert: getCreatedAt.call(this) || new Date()
