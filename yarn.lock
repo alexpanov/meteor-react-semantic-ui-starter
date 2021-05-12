@@ -3910,10 +3910,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-simpl-schema@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/simpl-schema/-/simpl-schema-1.7.3.tgz#83a3071e293ebade814becca3caf6e3cf04d93b1"
-  integrity sha512-ipYklJDyloHbzraZxzU+yNY/lZBZKzELQ4W73zHgWIB2NvCgBbEUNmcsZf88AbSZ6xV6afklVF1LgrVwuUTVjQ==
+simpl-schema@^1.10.2:
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/simpl-schema/-/simpl-schema-1.10.2.tgz#5a2628a3936105b54c13f9245acbb6c1704a8df2"
+  integrity sha512-s53RTUqy4sLR9ah8Jqgs2yqyQeImYDPWGqBxcboJRj4FN3Z022r1TEeYkN0k6sxVtE1E+dXk0aFEbRnEiFHB8w==
   dependencies:
     clone "^2.1.2"
     message-box "^0.2.7"
