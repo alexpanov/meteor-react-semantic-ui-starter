@@ -15,7 +15,7 @@
     "lodash.flatmap": "^4.5.0",
     "lodash.get": "^4.4.2",
     "meteor-node-stubs": "~1.0.0",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
